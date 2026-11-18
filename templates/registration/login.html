@@ -1,0 +1,32 @@
+
+{% extends "base.html" %}
+
+{% block title %}Log In | InSureRance{% endblock %}
+
+{% block content %}
+
+<div class="auth-container">
+    <div class="auth-box">
+
+        <h2>Welcome Back</h2>
+        <p>Log in to continue your insurance learning journey.</p>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit" class="primary-btn">
+                Log In
+            </button>
+        </form>
+
+        <p>
+            Don't have an account?
+            <a href="{% url 'signup' %}">Create an account</a>
+        </p>
+
+    </div>
+</div>
+
+{% endblock %}

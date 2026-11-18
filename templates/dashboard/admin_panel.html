@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card border-0 shadow-sm"><div class="card-body p-4">
+  <p class="text-success fw-semibold mb-1">ADMINISTRATORS ONLY</p>
+  <h1 class="h3">Admin Panel</h1>
+  <p>You successfully opened the role-protected CampusConnect page.</p>
+  {% if user.is_staff %}<a class="btn btn-success" href="{% url 'admin:index' %}">Go to Django administration</a>{% endif %}
+  <a class="btn btn-outline-secondary" href="{% url 'dashboard' %}">Back to dashboard</a>
+</div></div>
+{% endblock %}

@@ -1,0 +1,189 @@
+
+{% extends "base.html" %}
+
+{% block title %}My Learning Journey | InSureRance{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-heading">YOUR SPACE</div>
+
+        <a href="{% url 'user_dashboard' %}" class="side-link active">
+            ◈ &nbsp; Overview
+        </a>
+
+        <div class="sidebar-heading">EXPLORE & LEARN</div>
+
+        <span class="side-link">▤ &nbsp; Insurance Lessons</span>
+        <span class="side-link">◇ &nbsp; Knowledge Quizzes</span>
+        <span class="side-link">◎ &nbsp; Real-Life Scenarios</span>
+        <span class="side-link">✧ &nbsp; Personality Quiz</span>
+        <span class="side-link">◉ &nbsp; Scam Checker</span>
+        <span class="side-link">▣ &nbsp; Insurance Corner</span>
+
+        <div class="sidebar-heading">PERSONAL</div>
+
+        <span class="side-link">☆ &nbsp; My Achievements</span>
+        <a href="{% url 'profile_edit' %}" class="side-link">
+            ◯ &nbsp; My Profile
+        </a>
+
+        <div class="sidebar-note">
+            <span class="eyebrow">A LITTLE REMINDER</span>
+            <p>
+                Every lesson brings you one step closer
+                to smarter decisions.
+            </p>
+            <span>✦ Keep learning</span>
+        </div>
+
+    </aside>
+
+    <section class="dashboard-main">
+
+        <div class="page-label">
+            YOUR LEARNING SPACE / OVERVIEW
+        </div>
+
+        <section class="hero">
+
+            <div class="hero-copy">
+
+                <span class="hero-kicker">
+                    ✦ YOUR JOURNEY STARTS HERE
+                </span>
+
+                <h1>
+                    Insurance can be<br>
+                    <em>understood.</em>
+                </h1>
+
+                <p>
+                    Welcome, {{ user.first_name|default:user.username }}!
+                    Discover insurance concepts at your own pace,
+                    build knowledge, and become more informed.
+                </p>
+
+                <span class="hero-pill">
+                    Your insurance literacy journey
+                </span>
+
+            </div>
+
+            <div class="hero-art" aria-hidden="true">
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+                <div class="hero-shield">✦</div>
+                <span class="orbit-star">✧</span>
+            </div>
+
+        </section>
+
+        <div class="section-heading">
+            <div>
+                <span class="eyebrow">YOUR PERSONAL SPACE</span>
+                <h2>Your learning snapshot</h2>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+                <span class="stat-icon">◈</span>
+                <span class="stat-label">Account status</span>
+                <strong>Active</strong>
+                <small>Your learning space is ready</small>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-icon">▤</span>
+                <span class="stat-label">Lessons completed</span>
+                <strong>—</strong>
+                <small>Available in a future phase</small>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-icon">◎</span>
+                <span class="stat-label">Insurance literacy level</span>
+                <strong>Not assessed</strong>
+                <small>Complete quizzes when available</small>
+            </div>
+
+        </div>
+
+        <div class="section-heading space-top">
+            <div>
+                <span class="eyebrow">DISCOVER YOUR NEXT STEP</span>
+                <h2>Explore InSureRance</h2>
+            </div>
+        </div>
+
+        <div class="feature-grid">
+
+            <article class="feature-card">
+                <span class="feature-symbol">01 / LEARN</span>
+                <div class="feature-graphic">▤</div>
+
+                <h3>Insurance Lessons</h3>
+
+                <p>
+                    Understand insurance fundamentals through
+                    simple, organized learning materials.
+                </p>
+
+                <span class="coming-soon">Coming Soon</span>
+            </article>
+
+            <article class="feature-card">
+                <span class="feature-symbol">02 / PRACTICE</span>
+                <div class="feature-graphic">◇</div>
+
+                <h3>Test Your Knowledge</h3>
+
+                <p>
+                    Check your understanding with quizzes
+                    and identify topics to improve.
+                </p>
+
+                <span class="coming-soon">Coming Soon</span>
+            </article>
+
+            <article class="feature-card">
+                <span class="feature-symbol">03 / STAY AWARE</span>
+                <div class="feature-graphic">◎</div>
+
+                <h3>Scam Checker</h3>
+
+                <p>
+                    Learn to identify warning signs in
+                    suspicious insurance offers.
+                </p>
+
+                <span class="coming-soon">Coming Soon</span>
+            </article>
+
+        </div>
+
+        <div class="insight-banner">
+            <div>
+                <span class="eyebrow">
+                    KNOWLEDGE IS YOUR FIRST PROTECTION
+                </span>
+                <h3>Start curious. Stay informed.</h3>
+                <p>
+                    Understanding insurance starts with asking
+                    the right questions.
+                </p>
+            </div>
+
+            <span class="insight-decoration">✳</span>
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

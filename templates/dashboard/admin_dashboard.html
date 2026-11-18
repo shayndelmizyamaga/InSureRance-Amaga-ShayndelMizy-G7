@@ -1,0 +1,178 @@
+
+{% extends "base.html" %}
+
+{% block title %}Administration | InSureRance{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-heading">ADMINISTRATION</div>
+
+        <a href="{% url 'admin_dashboard' %}" class="side-link active">
+            ◈ &nbsp; Overview
+        </a>
+
+        <div class="sidebar-heading">MANAGEMENT</div>
+
+        <span class="side-link">◯ &nbsp; User Management</span>
+        <span class="side-link">▤ &nbsp; Insurance Lessons</span>
+        <span class="side-link">◇ &nbsp; Quizzes & Questions</span>
+        <span class="side-link">◎ &nbsp; Activities</span>
+        <span class="side-link">▣ &nbsp; Resources</span>
+        <span class="side-link">☆ &nbsp; Badges</span>
+
+        <div class="sidebar-heading">INSIGHTS</div>
+
+        <span class="side-link">◫ &nbsp; Learning Analytics</span>
+
+        {% if user.is_staff %}
+        <a href="{% url 'admin:index' %}" class="side-link">
+            ⚙ &nbsp; Django Admin
+        </a>
+        {% endif %}
+
+        <div class="sidebar-note">
+            <span class="eyebrow">ADMIN WORKSPACE</span>
+            <p>
+                Manage the learning environment and help
+                users grow their insurance knowledge.
+            </p>
+        </div>
+
+    </aside>
+
+    <section class="dashboard-main">
+
+        <div class="page-label">
+            ADMINISTRATION / OVERVIEW
+        </div>
+
+        <section class="hero admin-hero">
+
+            <div class="hero-copy">
+
+                <span class="hero-kicker">
+                    ✦ INSURERANCE MANAGEMENT
+                </span>
+
+                <h1>
+                    Learning begins<br>
+                    with <em>guidance.</em>
+                </h1>
+
+                <p>
+                    Welcome back,
+                    {{ user.first_name|default:user.username }}.
+                    Manage the platform and prepare meaningful
+                    insurance literacy experiences.
+                </p>
+
+                <span class="hero-pill">
+                    Administrator Workspace
+                </span>
+
+            </div>
+
+            <div class="hero-art" aria-hidden="true">
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+                <div class="hero-shield">✳</div>
+            </div>
+
+        </section>
+
+        <div class="section-heading">
+            <div>
+                <span class="eyebrow">PLATFORM OVERVIEW</span>
+                <h2>At a glance</h2>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+                <span class="stat-icon">◯</span>
+                <span class="stat-label">Total accounts</span>
+                <strong>{{ member_count }}</strong>
+                <small>Registered accounts</small>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-icon">◈</span>
+                <span class="stat-label">Registered users</span>
+                <strong>{{ user_count }}</strong>
+                <small>Accounts with User role</small>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-icon">▤</span>
+                <span class="stat-label">Content analytics</span>
+                <strong>Pending</strong>
+                <small>Available in a future phase</small>
+            </div>
+
+        </div>
+
+        <div class="section-heading space-top">
+            <div>
+                <span class="eyebrow">
+                    BUILD THE LEARNING EXPERIENCE
+                </span>
+                <h2>Content management</h2>
+            </div>
+        </div>
+
+        <div class="feature-grid">
+
+            <article class="feature-card">
+                <span class="feature-symbol">CONTENT / 01</span>
+                <div class="feature-graphic">▤</div>
+
+                <h3>Lessons & Topics</h3>
+
+                <p>
+                    Organize insurance topics and manage
+                    educational lessons.
+                </p>
+
+                <span class="coming-soon">Coming Soon</span>
+            </article>
+
+            <article class="feature-card">
+                <span class="feature-symbol">CONTENT / 02</span>
+                <div class="feature-graphic">◇</div>
+
+                <h3>Quizzes & Activities</h3>
+
+                <p>
+                    Prepare assessments, scenarios,
+                    and predefined learning activities.
+                </p>
+
+                <span class="coming-soon">Coming Soon</span>
+            </article>
+
+            <article class="feature-card">
+                <span class="feature-symbol">INSIGHTS / 03</span>
+                <div class="feature-graphic">◫</div>
+
+                <h3>Learning Analytics</h3>
+
+                <p>
+                    Review overall quiz results and learning
+                    progress when available.
+                </p>
+
+                <span class="coming-soon">Coming Soon</span>
+            </article>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

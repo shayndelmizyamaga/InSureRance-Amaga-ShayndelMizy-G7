@@ -1,0 +1,41 @@
+
+{% extends "base.html" %}
+
+{% block title %}My Profile | InSureRance{% endblock %}
+
+{% block content %}
+
+<div class="auth-container">
+    <div class="auth-box">
+
+        <h2>My Profile</h2>
+        <p>View and update your account information.</p>
+
+        <div class="profile-info">
+            <p><strong>Username:</strong> {{ user.username }}</p>
+            <p><strong>Role:</strong> {{ user.get_role_display }}</p>
+            <p><strong>Date Joined:</strong> {{ user.date_joined|date:"M d, Y" }}</p>
+        </div>
+
+        <hr>
+
+        <h3>Edit Information</h3>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit" class="primary-btn">
+                Save Changes
+            </button>
+        </form>
+
+        <p>
+            <a href="{% url 'dashboard' %}">← Back to Dashboard</a>
+        </p>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,75 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}InSureRance{% endblock %}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <header class="topbar">
+        <a class="brand" href="{% url 'dashboard' %}">
+            <span class="brand-symbol">✦</span>
+            <span>InSure<span class="brand-accent">Rance</span></span>
+        </a>
+
+        <nav class="topnav">
+            {% if user.is_authenticated %}
+
+                <span class="nav-greeting">
+                    Hello, {{ user.first_name|default:user.username }}
+                </span>
+
+                <a href="{% url 'dashboard' %}" class="nav-link">
+                    Dashboard
+                </a>
+
+                <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="logout-btn">
+                        Log out
+                    </button>
+                </form>
+
+            {% else %}
+
+                <a href="{% url 'login' %}" class="nav-link">
+                    Log in
+                </a>
+
+                <a href="{% url 'signup' %}" class="primary-btn">
+                    Get Started
+                </a>
+
+            {% endif %}
+        </nav>
+    </header>
+
+    {% if messages %}
+        <div class="message-container">
+            {% for message in messages %}
+                <div class="message">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <span>© InSureRance — Insurance Literacy Learning System</span>
+        <span>Learn with clarity. Grow with confidence.</span>
+    </footer>
+
+</body>
+</html>
